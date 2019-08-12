@@ -4,19 +4,20 @@ class welcome extends AppController{
 
   public function __construct($parent){
     $this->parent = $parent;
-    //var_dump($this->parent);
+    $this->home();
   }
 
-  public function about(){
-    //echo "hello";
-
+  public function home(){
     $data = array();
-    $data["pagename"] = "about";
-    $data["navigation"] = array("home"=>"/home","about"=>"/about");
+    $data["pagename"] = "home";
+    $data["navigation"] = array("home"=>"/home","brews"=>"/brews","about"=>"/about");
 
     $this->parent->getView("header", $data);
     $this->parent->getView("body");
     $this->parent->getView("footer");
+  }
+
+  public function about(){
   }
 
 }
