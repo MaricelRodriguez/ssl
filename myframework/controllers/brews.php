@@ -4,10 +4,10 @@ class brews extends AppController{
 
   public function __construct($parent){
     $this->parent = $parent;
-    $this->brews();
+    //$this->brews();
   }
 
-  public function brews(){
+  public function index(){
     $data = array();
     $data["pagename"] = "brews";
     $data["navigation"] = array("welcome"=>"/welcome","brews"=>"/brews","about"=>"/about");
