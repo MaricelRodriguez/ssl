@@ -162,7 +162,7 @@
   <div class='nav-wrap'>
     <nav>
     <?php
-    //var_dump($data["navigation"]);
+    
     foreach($data["navigation"] as $key=>$link){
       echo "<a href='".$link."'";
       if($data["pagename"] == $key){
