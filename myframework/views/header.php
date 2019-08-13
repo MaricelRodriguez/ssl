@@ -41,15 +41,17 @@
       color: #C699BD;
     }
 
+    header, footer{
+      max-width: 80vw;
+      padding: 10px 10vw;
+      background-color: #1a090d;
+    }
+
     /***HEADER STYLES***/
 
     header{
-      max-width: 80vw;
-      padding: 10px 10vw;
-
       display: flex;
       justify-content: space-between;
-      background-color: #1a090d;
 
       box-shadow: 0px 10px 25px 0px rgba(26,9,13,0.75);
     }
@@ -97,6 +99,18 @@
       color: #E8E2DB;
     }
 
+    /***FOOTER STYLES***/
+    footer{
+      margin-top: 50px;
+      text-align: center;
+
+      position: fixed;
+      min-width: 100vw;
+      bottom: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
     /***PAGE SECTIONS***/
     section{
       background-color: #1a090d;
@@ -104,8 +118,7 @@
       padding: 50px 20px;
     }
 
-    /**WELCOME PAGE**/
-    #welcome img{
+    #welcome img, #about img{
       max-width: 25vw;
       display: block;
       margin: auto;

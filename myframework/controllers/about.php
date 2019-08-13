@@ -7,13 +7,13 @@ class about extends AppController{
     $this->about();
   }
 
-  public function brews(){
+  public function about(){
     $data = array();
     $data["pagename"] = "about";
     $data["navigation"] = array("welcome"=>"/welcome","brews"=>"/brews","about"=>"/about");
 
     $this->parent->getView("header", $data);
-    $this->parent->getView("about");
+    $this->parent->getView("about", $data);
     $this->parent->getView("footer");
   }
 }
