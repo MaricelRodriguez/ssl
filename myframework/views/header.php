@@ -111,6 +111,31 @@
       margin: auto;
       margin-bottom: 20px;
     }
+
+    /**BREWS PAGE**/
+    #brews img{
+      max-height: 100px;
+      padding-right: 10px;
+    }
+
+    .brew{
+      display: flex;
+      padding: 50px 0;
+      border-bottom: 1px solid #E8E2DB;
+    }
+
+    .brew:first-child{
+      padding-top: 0;
+    }
+
+    .brew:last-child{
+      padding-bottom: 0;
+      border: none;
+    }
+
+    .brew p{
+      align-self: center;
+    }
   </style>
 </head>
 
