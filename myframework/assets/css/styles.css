@@ -110,7 +110,7 @@
     padding: 50px 20px;
   }
 
-  #welcome img, #about img{
+  .page-img{
     max-width: 25vw;
     display: block;
     margin: auto;
@@ -149,4 +149,8 @@
   #brews button{
     align-self: center;
     width: 100%;
+  }
+
+  #carouselExampleFade, #carouselExampleFade img{
+    max-height: 300px;
   }
