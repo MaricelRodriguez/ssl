@@ -6,7 +6,8 @@
 <head>
   <meta charset='utf-8'>
   <title>Witches Brew</title>
-  <link href='./assets/styles.css' rel='stylesheet'>
+  <link href='./assets/css/bootstrap.min.css' rel='stylesheet'>
+  <link href='./assets/css/styles.css' rel='stylesheet'>
 </head>
 
 <body>
