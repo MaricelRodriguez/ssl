@@ -96,11 +96,7 @@
     margin-top: 50px;
     text-align: center;
 
-    position: fixed;
     min-width: 100vw;
-    bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
   }
 
   /***PAGE SECTIONS***/
@@ -115,6 +111,11 @@
     display: block;
     margin: auto;
     margin-bottom: 20px;
+  }
+
+  /**WELCOME PAGE**/
+  #carouselExampleFade, #carouselExampleFade img{
+    max-height: 300px;
   }
 
   /**BREWS PAGE**/
@@ -151,6 +152,12 @@
     width: 100%;
   }
 
-  #carouselExampleFade, #carouselExampleFade img{
-    max-height: 300px;
+  .progress-wrap{
+    margin: 50px;
+    text-align: center;
+  }
+
+  .progress{
+    max-width: 50vw;
+    margin: auto;
   }
