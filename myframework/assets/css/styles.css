@@ -27,7 +27,7 @@
   }
 
   p{
-    /*font-weight: normal;*/
+    margin-bottom: 0;
   }
 
   b{
@@ -140,4 +140,13 @@
 
   .brew p{
     align-self: center;
+  }
+
+  #brews .btn-wrap{
+    display: flex;
+  }
+
+  #brews button{
+    align-self: center;
+    width: 100%;
   }
