@@ -11,14 +11,14 @@
 </head>
 
 <body>
-<header>
-  <div id='title'>
+<header class="row">
+  <div id='title' class="col-sm">
     <h1>Witches' Brew</h1>
     <h2>Magic in a Bottle</h2>
   </div>
 
-  <div class='nav-wrap'>
-    <nav>
+  <div class='nav-wrap col-sm'>
+    <nav class="flex-row">
     <?php
 
     foreach($data["navigation"] as $key=>$link){

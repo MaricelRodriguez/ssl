@@ -3,6 +3,8 @@
   echo 'id="'.$data["pagename"].'"';
 ?>
 >
+
+
 <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -25,8 +27,10 @@
   </a>
 </div>
 
-  <img class='page-img' src='./assets/images/cauldron.svg' alt='bubbling cauldron'/>
+<p>Here at <b>Witches' Brew</b>, we pride ourselves in delivering the most amazing flasks and potions.  Our products are all made from natural ingredients and stirred by hand. Imbued with potent leyline energies, our brews are far more effective than our competitors' products.</p>
 
-  <p>Here at <b>Witches' Brew</b>, we pride ourselves in delivering the most potent flasks and potions.  Our products are all made from natural ingredients and stirred by hand.</p>
+<img class='page-img' src='./assets/images/cauldron.svg' alt='bubbling cauldron'/>
+
+ <button onclick="window.location.href = '/brews';">Shop Brews</button>
 
 </section>
