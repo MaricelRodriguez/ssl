@@ -21,7 +21,7 @@ class register extends AppController{
     $data = array();
     $data["root"] = "..";
     $data["pagename"] = "register";
-    $data["navigation"] = array("welcome"=>"/welcome","brews"=>"/brews", "register"=>"/register","about"=>"/about");
+    $data["navigation"] = array("welcome"=>"/welcome","brews"=>"/brews", "register"=>"/register", "login"=>"/login","about"=>"/about");
 
     $this->parent->getView("header", $data);
     $this->parent->getView("registerConfirmed", $data);
@@ -31,17 +31,29 @@ class register extends AppController{
   public function registerAction(){
     $err = array();
 
-    //Nam
+    //Check Name
     if(empty($_POST["name"]) || $_POST["name"] == ""){
-      array_push($err, "Name has not been entered");
-    } else {
-      if(!preg_match("/^[a-zA-Z]*$/", $_POST["name"])){
-        array_push($err, "Invalid characters used");
-      }
+      $err["errname"]="Name cannot be blank";
+    } else if(!preg_match("/^[a-zA-Z]*$/", $_POST["name"])){
+      $err["errname"]="Name contains invalid characters";
+    }
+
+    //Check Gender
+    if(empty($_POST["gender"]) || $_POST["gender"] == ""){
+      $err["errgender"]="Please make a selection";
+    }
+
+    //Check Zodiac Sign
+    if($_POST["zodiac"] == "select"){
+      $err["errzodiac"]="Please make a selection";
     }
 
     if(count($err) > 0){
-      header("location:/register?msg=".implode("&", $err));
+      $url = "location:/register?";
+      foreach ($err as $key => $value) {
+        $url = $url.$key."=".$value."&";
+      }
+      header($url);
     } else {
       header("location:/register/registerConfirmed");
     }

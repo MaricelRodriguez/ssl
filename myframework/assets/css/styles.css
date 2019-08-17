@@ -224,3 +224,8 @@ section{
 #about button{
   margin-top: 50px;
 }
+
+/***REGISTER PAGE***/
+.error {
+  color: red;
+}
