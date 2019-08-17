@@ -17,6 +17,16 @@ class login extends AppController{
     $this->parent->getView("footer", $data);
   }
 
+  public function loginSubmit(){
+    $data = array();
+    $data["root"] = "..";
+    $data["pagename"] = "login";
+    $data["navigation"] = array("welcome"=>"/welcome","brews"=>"/brews", "register"=>"/register", "login"=>"/login","about"=>"/about");
+
+    $this->parent->getView("header", $data);
+    $this->parent->getView("loginSubmit", $data);
+    $this->parent->getView("footer", $data);
+  }
   public function recieve(){
     if($_POST["type"] == "form"){
       $this->recieveForm();
@@ -24,7 +34,7 @@ class login extends AppController{
       $this->recieveAjax();
     }
   }
-
+  /*
   public function recieveForm(){
     if($_POST["email"] == "mike@aol.com" && $_POST["password"] == "1234"){
       header("location:/login?msg=Good Login");
@@ -32,12 +42,12 @@ class login extends AppController{
       header("location:/login?msg=Invalid User");
     }
   }
-
+  */
   public function recieveAjax(){
     if($_POST["email"] == "mike@aol.com" && $_POST["password"] == "1234"){
-      echo "good";
+      echo "success";
     } else {
-      echo "bad";
+      echo "failure";
     }
   }
 }
