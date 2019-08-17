@@ -7,7 +7,7 @@
 <?php
   foreach($data["brews"] as $key=>$description){
     echo '<div class="brew row">';
-    echo '<img class="col-md" src="./assets/images/'.str_replace(' ', '', $key).'.svg" alt="'.$key.'"/>';
+    echo '<img class="col-md" src="'.$data["root"].'/assets/images/'.str_replace(' ', '', $key).'.svg" alt="'.$key.'"/>';
     echo '<div class="col-md-6">';
     echo '<h4>'.$key.'</h3>';
     echo '<p>'.$description.'</p>';

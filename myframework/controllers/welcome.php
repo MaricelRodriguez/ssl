@@ -9,12 +9,13 @@ class welcome extends AppController{
 
   public function index(){
     $data = array();
+    $data["root"] = ".";
     $data["pagename"] = "welcome";
-    $data["navigation"] = array("welcome"=>"/welcome","brews"=>"/brews","about"=>"/about");
+    $data["navigation"] = array("welcome"=>"/welcome","brews"=>"/brews", "register"=>"/register","about"=>"/about");
 
     $this->parent->getView("header", $data);
     $this->parent->getView("welcome", $data);
-    $this->parent->getView("footer");
+    $this->parent->getView("footer", $data);
   }
 }
 
