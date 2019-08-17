@@ -11,7 +11,7 @@ class about extends AppController{
     $data = array();
     $data["root"] = ".";
     $data["pagename"] = "about";
-    $data["navigation"] = array("welcome"=>"/welcome","brews"=>"/brews", "register"=>"/register","about"=>"/about");
+    $data["navigation"] = array("welcome"=>"/welcome","brews"=>"/brews", "register"=>"/register", "login"=>"/login","about"=>"/about");
 
     $this->parent->getView("header", $data);
     $this->parent->getView("about", $data);
