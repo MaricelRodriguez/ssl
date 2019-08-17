@@ -31,6 +31,7 @@ class register extends AppController{
   public function registerAction(){
     $err = array();
 
+    //Nam
     if(empty($_POST["name"]) || $_POST["name"] == ""){
       array_push($err, "Name has not been entered");
     } else {
