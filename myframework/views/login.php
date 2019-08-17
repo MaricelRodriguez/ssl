@@ -3,7 +3,7 @@
   echo 'id="'.$data["pagename"].'"';
 ?>
 >
-
+<!--
 <h4>Form Request</h4>
 <form method="post" action="/login/recieve">
   <input type="hidden" name="type" value="form">
@@ -22,16 +22,19 @@
 <br/>
 
 <h4>Ajax Request</h4>
+-->
 <form>
   <div class="form-group">
-      <label for="inputEmailAjax">Name</label>
-      <input type="text" class="form-control" id="inputEmailAjax" placeholder="Email Address">
-    </div>
-    <div class="form-group">
-      <label for="inputPasswordAjax">Password</label>
-      <input type="password" class="form-control" id="inputPasswordAjax" placeholder="Password">
-    </div>
-    <button type="button" onclick="AjaxSubmit()" class="btn btn-primary">Submit</button>
+    <label for="inputEmailAjax">Email</label>
+    <p class="error"><? echo @$_GET["erremail"]?></p>
+    <input type="text" class="form-control" id="inputEmailAjax" placeholder="Email Address">
+  </div>
+  <div class="form-group">
+    <p class="error"><? echo @$_GET["errpass"]?></p>
+    <label for="inputPasswordAjax">Password</label>
+    <input type="password" class="form-control" id="inputPasswordAjax" placeholder="Password">
+  </div>
+  <button type="button" onclick="AjaxSubmit()" class="btn btn-primary">Submit</button>
 </form>
 
 </section>
