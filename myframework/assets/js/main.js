@@ -10,10 +10,10 @@ function AjaxSubmit(e){
   var emailF = $("#inputEmailAjax").val();
   var passwordF = $("#inputPasswordAjax").val();
 
-  var emailRegex = /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/
+  var emailRegex = /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
 
   if(emailF.trim() == ''){
-    let errEmail = "erremail=Email cannot be blank&"
+    let errEmail = "erremail=Email cannot be blank&";
     err = true;
     url = url + errEmail;
   } else if(!emailRegex.test(emailF)){
