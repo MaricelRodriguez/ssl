@@ -4,7 +4,10 @@ class brews extends AppController{
 
   public function __construct($parent){
     $this->parent = $parent;
-    //$this->brews();
+
+    if(!@$_SESSION["isloggedin"] || @$_SESSION["isloggedin"] != "1"){
+      header("location:/login/loginSubmit?msg=You must login to view the brews page");
+    }
   }
 
   public function index(){

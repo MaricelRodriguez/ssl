@@ -6,7 +6,7 @@ class crud extends AppController{
     $this->parent = $parent;
 
     if(!@$_SESSION["isloggedin"] || @$_SESSION["isloggedin"] != "1"){
-      header("location:/login/loginSubmit?msg=You must login");
+      header("location:/login/loginSubmit?msg=You must login to view the crud page");
     }
   }
 

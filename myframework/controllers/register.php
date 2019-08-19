@@ -12,6 +12,9 @@ class register extends AppController{
     $data["pagename"] = "register";
     $data["navigation"] = $this->parent->getNav();
 
+    $random = substr( md5(rand()), 0, 7);
+    $data["cap"]=$random;
+
     $this->parent->getView("header", $data);
     $this->parent->getView("register", $data);
     $this->parent->getView("footer", $data);
@@ -46,6 +49,11 @@ class register extends AppController{
     //Check Zodiac Sign
     if($_POST["zodiac"] == "select"){
       $err["errzodiac"]="Please make a selection";
+    }
+
+    //Check Captcha
+    if(!@$_POST["usercatpcha"] || $_POST["usercatpcha"]!= $_SESSION["captchacode"]){
+      $err["errcaptcha"]="Captcha incorrect";
     }
 
     if(count($err) > 0){
