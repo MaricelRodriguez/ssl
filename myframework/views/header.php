@@ -23,11 +23,21 @@
     <?php
 
     foreach($data["navigation"] as $key=>$link){
-      echo "<a href='".$link."'";
-      if($data["pagename"] == $key){
-        echo 'class="active"';
-      };
-      echo ">".$key."</a>";
+      if($key == "login" && @$_SESSION["isloggedin"] && @$_SESSION["isloggedin"]==1){
+        echo "<a href='/crud'";
+        if($data["pagename"] == "crud"){
+          echo 'class="active"';
+        };
+        echo ">crud</a>";
+        echo "<a href='/logout'";
+        echo ">logout</a>";
+      } else {
+        echo "<a href='".$link."'";
+        if($data["pagename"] == $key){
+          echo 'class="active"';
+        };
+        echo ">".$key."</a>";
+      }
     }
     ?>
     </nav>

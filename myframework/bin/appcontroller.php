@@ -8,7 +8,7 @@ class AppController{
     {
 
         //$this->db = new PDO("mysql:dbname=".$config["dbname"].";",$config["dbuser"],$config["dbpass"]);
-      
+
         $this->urlPathParts = $urlPathParts;
 
 
@@ -19,20 +19,20 @@ class AppController{
             $appcon = new $urlPathParts[0]($this);
 
             if (isset($urlPathParts[1])) {
-           
+
                 $appcon->$urlPathParts[1]();
-                
-                    
+
+
             }else{
-           		
+
            		$methodVariable = array($appcon, 'index');
 				if(is_callable($methodVariable, false, $callable_name)){
             	$appcon->index($this);
-            
+
             	}
             }
-            
-            
+
+
         }else{
 
             include './controllers/' . $config['defaultController'] . ".php";
@@ -40,11 +40,11 @@ class AppController{
             if (isset($urlPathParts[1])) {
                 $appcon->config['defaultController'][1]();
             }else{
-           		
+
            		$methodVariable = array($appcon, 'index');
 				if(is_callable($methodVariable, false, $callable_name)){
             	$appcon->index($this);
-            
+
             	}
             }
 
@@ -56,7 +56,15 @@ class AppController{
 
 
 
-
+    public function getNav(){
+      return array(
+        "welcome"=>"/welcome",
+        "brews"=>"/brews",
+        "register"=>"/register",
+        "login"=>"/login",
+        "about"=>"/about"
+      );
+    }
 
 
     public function getView($page,$data=array()){
@@ -73,8 +81,8 @@ class AppController{
         return $model;
 
     }
-	
-   
+
+
 
 }
 
