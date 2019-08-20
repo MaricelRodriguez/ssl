@@ -5,19 +5,21 @@
 >
 
 <!--<h4>Form Request</h4>-->
+
 <form method="post" action="/login/recieve">
   <input type="hidden" name="type" value="form">
   <div class="form-group">
       <label for="inputEmailForm">Name</label>
       <p class="error"><? echo @$_GET["erremail"]?></p>
       <input name="email" type="text" class="form-control" id="inputEmailForm" placeholder="Email Address">
-    </div>
-    <div class="form-group">
-      <label for="inputPasswordForm">Password</label>
-      <p class="error"><? echo @$_GET["errpass"]?></p>
-      <input name="password" type="password" class="form-control" id="inputPasswordForm" placeholder="Password">
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+  <div class="form-group">
+    <label for="inputPasswordForm">Password</label>
+    <p class="error"><? echo @$_GET["errpass"]?></p>
+    <input name="password" type="password" class="form-control" id="inputPasswordForm" placeholder="Password">
+  </div>
+
+  <button type="submit">Submit</button>
 
 </form>
 <!--

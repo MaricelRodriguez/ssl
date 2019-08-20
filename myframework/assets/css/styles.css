@@ -149,7 +149,7 @@ section{
   max-width: 500px;
 }
 
-/**WELCOME PAGE**/
+/***WELCOME PAGE***/
 #welcome{
   text-align: center;
 }
@@ -172,7 +172,7 @@ section{
   height: auto;
 }
 
-/**BREWS PAGE**/
+/***BREWS PAGE***/
 #brews img{
   max-height: 100px;
   padding-right: 10px;
@@ -241,4 +241,8 @@ section{
 /***REGISTER PAGE***/
 .error {
   color: red;
+}
+
+#register button, #login button{
+  min-width: 100px;
 }
