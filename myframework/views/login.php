@@ -19,7 +19,7 @@
     <input name="password" type="password" class="form-control" id="inputPasswordForm" placeholder="Password">
   </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit">Submit</button>
 
 </form>
 <!--
