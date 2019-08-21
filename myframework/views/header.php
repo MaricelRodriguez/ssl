@@ -29,8 +29,14 @@
           echo 'class="active"';
         };
         echo ">crud</a>";
+        echo "<a href='/profile'";
+        if($data["pagename"] == "profile"){
+          echo 'class="active"';
+        };
+        echo ">profile</a>";
         echo "<a href='/logout'";
         echo ">logout</a>";
+
       } else {
         echo "<a href='".$link."'";
         if($data["pagename"] == $key){
