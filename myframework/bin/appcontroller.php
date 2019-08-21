@@ -60,9 +60,9 @@ class AppController{
       return array(
         "welcome"=>"/welcome",
         "brews"=>"/brews",
+        "about"=>"/about",
         "register"=>"/register",
-        "login"=>"/login",
-        "about"=>"/about"
+        "login"=>"/login"
       );
     }
 
