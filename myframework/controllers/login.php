@@ -36,41 +36,61 @@ class login extends AppController{
   }
 
   public function recieveForm(){
+    $email = strtolower(trim($_POST["email"]," "));
+    $password = strtolower(trim($_POST["password"]," "));
+
     //Validation
     $url = "/login?";
     $err = false;
 
     $emailRegex = "/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/";
 
-    if(trim($_POST["email"]," ") == ''){
+    if($email == ''){
       $errEmail = "erremail=Email cannot be blank&";
       $err = true;
       $url = $url.$errEmail;
-    } else if(!preg_match($emailRegex, $_POST["email"])){
+    } else if(!preg_match($emailRegex, $email)){
       $errEmail = "erremail=Invalid characters used&";
       $err = true;
       $url = $url.$errEmail;
     }
 
-    if(trim($_POST["password"] == '')){
+    if($password == ''){
       $errPass = "errpass=Password cannot be blank&";
       $err = true;
       $url = $url.$errPass;
     }
 
+    $loginmatch = false;
+
+    $file = "./assets/login.txt";
+    $h = fopen($file, "r");
+
+    while(!feof($h)){
+      $user = fgets($h);
+      $userparts = explode("|", $user);
+
+      if(strtolower(trim($userparts[0]," ")) == $email){
+        if(strtolower(trim($userparts[1]," ")) == $password){
+          $loginmatch = true;
+        }
+        break;
+      }
+    }
+
+    fclose($h);
+
     if($err){
       header("location:".$url);
-    } else if($_POST["email"] == "mike@aol.com" && $_POST["password"] == "1234"){
+    } else if($loginmatch){
       $_SESSION["isloggedin"] = "1";
-      $_SESSION["useremail"] = $_POST["email"];
-      //header("location:/login/loginSubmit?msg=Login successful");
+      $_SESSION["useremail"] = $email;
       header("location:/crud");
     } else {
       $_SESSION["isloggedin"] = "0";
       $_SESSION["useremail"] = "";
       header("location:/login/loginSubmit?msg=Login Failed");
     }
-    //var_dump($_SESSION);
   }
 
   public function recieveAjax(){
