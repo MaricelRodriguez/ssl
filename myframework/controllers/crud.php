@@ -16,8 +16,27 @@ class crud extends AppController{
     $data["pagename"] = "crud";
     $data["navigation"] = $this->parent->getNav();
 
+    $file = "./assets/login.txt";
+    $h = fopen($file, "r");
+
+    while(!feof($h)){
+      $user = fgets($h);
+      $userparts = explode("|", $user);
+
+      if(strtolower(trim($userparts[0]," ")) == $_SESSION["useremail"]){
+        if(array_key_exists(2, $userparts)){
+          $data["msg"] = $userparts[2];
+        } else {
+          $data["msg"] = "Data not found.";
+        }
+        break;
+      }
+    }
+
+    fclose($h);
+
     $this->parent->getView("header", $data);
-    $this->parent->getView("welcome", $data);
+    $this->parent->getView("crud", $data);
     $this->parent->getView("footer", $data);
   }
 }
