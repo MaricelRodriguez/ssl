@@ -10,6 +10,27 @@ class crud extends AppController{
     }
   }
 
+  public function addAction(){
+
+
+    $sql = "insert into fruit_table (name) values (:name)";
+    $data["fruit"] = $this->parent->getModel("fruit")->insert($sql, array(":name"=>$_POST["name"]));
+
+    header("location:/crud");
+  }
+
+  public function addForm(){
+    $data = array();
+    $data["root"] = "..";
+    $data["pagename"] = "crud";
+    $data["navigation"] = $this->parent->getNav();
+
+    $this->parent->getView("header", $data);
+    $this->parent->getView("addForm", $data);
+    $this->parent->getView("footer", $data);
+  }
+
+
   public function index(){
     $data = array();
     $data["root"] = ".";
@@ -34,6 +55,9 @@ class crud extends AppController{
     }
 
     fclose($h);
+
+    $sql = "select * from fruit_table";
+    $data["fruit"] = $this->parent->getModel("fruit")->select($sql);
 
     $this->parent->getView("header", $data);
     $this->parent->getView("crud", $data);
