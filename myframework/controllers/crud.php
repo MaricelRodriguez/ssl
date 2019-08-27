@@ -38,7 +38,7 @@ class crud extends AppController{
     $sql = "delete from fruit_table where id=".$id;
     $this->parent->getModel("fruit")->delete($sql);
 
-    $this->parent->getView("header", $data);
+    header("location:/crud");
   }
 
   public function addAction(){
