@@ -62,23 +62,37 @@ class login extends AppController{
     }
 
     $loginmatch = false;
+    $failmsg = "";
 
-    $file = "./assets/login.txt";
-    $h = fopen($file, "r");
+    $sql = "select password from user_table where email='".$email."'";
+    $match = $this->parent->getModel("users")->select($sql);
 
-    while(!feof($h)){
-      $user = fgets($h);
-      $userparts = explode("|", $user);
-
-      if(strtolower(trim($userparts[0]," ")) == $email){
-        if(strtolower(trim($userparts[1]," ")) == $password){
-          $loginmatch = true;
-        }
-        break;
+    if(count($match) > 0){
+      if($match[0]["password"] == $password){
+        $loginmatch = true;
+      } else {
+        $failmsg = "Login Failed due to incorrect password";
       }
+    } else {
+      $failmsg = "Login Failed due to unknown email";
     }
 
-    fclose($h);
+    // $file = "./assets/login.txt";
+    // $h = fopen($file, "r");
+    //
+    // while(!feof($h)){
+    //   $user = fgets($h);
+    //   $userparts = explode("|", $user);
+    //
+    //   if(strtolower(trim($userparts[0]," ")) == $email){
+    //     if(strtolower(trim($userparts[1]," ")) == $password){
+    //       $loginmatch = true;
+    //     }
+    //     break;
+    //   }
+    // }
+    //
+    // fclose($h);
 
     if($err){
       header("location:".$url);
@@ -89,7 +103,9 @@ class login extends AppController{
     } else {
       $_SESSION["isloggedin"] = "0";
       $_SESSION["useremail"] = "";
-      header("location:/login/loginSubmit?msg=Login Failed");
+      var_dump($match);
+      var_dump($email);
+      header("location:/login/loginSubmit?msg=".$failmsg);
     }
   }
 

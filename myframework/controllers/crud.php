@@ -10,11 +10,40 @@ class crud extends AppController{
     }
   }
 
+  public function updateAction(){
+    $id = $this->parent->urlPathParts[2];
+    $sql = "update fruit_table set name='".$_POST["name"]."' where id='".$id."'";
+    $this->parent->getModel("fruit")->insert($sql);
+
+    header("location:/crud");
+  }
+
+  public function updateForm(){
+    $data = array();
+    $data["root"] = "";
+    $data["pagename"] = "crud";
+    $data["navigation"] = $this->parent->getNav();
+
+    $id = $this->parent->urlPathParts[2];
+    $sql = "select * from fruit_table where id=".$id;
+    $data["fruit"] = $this->parent->getModel("fruit")->select($sql);
+
+    $this->parent->getView("header", $data);
+    $this->parent->getView("updateForm", $data);
+    $this->parent->getView("footer", $data);
+  }
+
+  public function delete(){
+    $id = $this->parent->urlPathParts[2];
+    $sql = "delete from fruit_table where id=".$id;
+    $this->parent->getModel("fruit")->delete($sql);
+
+    $this->parent->getView("header", $data);
+  }
+
   public function addAction(){
-
-
     $sql = "insert into fruit_table (name) values (:name)";
-    $data["fruit"] = $this->parent->getModel("fruit")->insert($sql, array(":name"=>$_POST["name"]));
+    $this->parent->getModel("fruit")->insert($sql, array(":name"=>$_POST["name"]));
 
     header("location:/crud");
   }
