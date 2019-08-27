@@ -14,7 +14,7 @@
 
     foreach ($data["fruit"] as $fruit) {
       echo "<li>".$fruit["name"];
-      echo " <a href='/crud/delete/".$fruit["id"]."'>Delete</a> | <a href='/crud/updateForm'>Update</a></li>";
+      echo " <a href='/crud/delete/".$fruit["id"]."'>Delete</a> | <a href='/crud/updateForm/".$fruit["id"]."'>Update</a></li>";
     }
   ?>
   </ul>

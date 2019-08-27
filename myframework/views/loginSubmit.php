@@ -4,6 +4,6 @@
 ?>
 >
 
-<p><? echo @$_GET["msg"]?></p>
+<p><? echo @$_GET["msg"];?></p>
 
 </section>
