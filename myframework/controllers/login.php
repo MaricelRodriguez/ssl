@@ -103,8 +103,6 @@ class login extends AppController{
     } else {
       $_SESSION["isloggedin"] = "0";
       $_SESSION["useremail"] = "";
-      var_dump($match);
-      var_dump($email);
       header("location:/login/loginSubmit?msg=".$failmsg);
     }
   }
