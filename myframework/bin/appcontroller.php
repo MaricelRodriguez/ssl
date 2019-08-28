@@ -61,6 +61,7 @@ class AppController{
         "welcome"=>"/welcome",
         "brews"=>"/brews",
         "about"=>"/about",
+        "api"=>"/api/showApi",
         "register"=>"/register",
         "login"=>"/login"
       );

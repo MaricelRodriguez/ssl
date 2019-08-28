@@ -1,6 +1,6 @@
 <?php
 
-
+require_once './google-api-php-client/src/Google/autoload.php';
 
 $config = array(
 'defaultController' => 'welcome',
