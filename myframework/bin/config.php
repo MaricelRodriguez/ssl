@@ -1,6 +1,9 @@
 <?php
 
 require_once './google-api-php-client/src/Google/autoload.php';
+require 'vendor/autoload.php';
+
+use GuzzleHttp\Client;
 
 $config = array(
 'defaultController' => 'welcome',

@@ -20,6 +20,25 @@ class apiModel{
 
     return $result;
   }
+
+  public function youtube($term=''){
+    //var_dump($term);
+    $client = new Google_Client();
+    $client->setApplicationName("SSLClass");
+    $client->setDeveloperKey("AIzaSyB8M_KxjRDUFiRPhrXC_cPJqszWiqf637c");
+
+    $service = new Google_Service_YouTube($client);
+
+    $optParams = array("part"=>"snippet","maxResults"=>10,"q"=>$term);
+    $search = $service->search->listSearch($term, $optParams);
+
+    return $search;
+  }
+
+  public function instagram($tag='cat'){
+    $client = new Client();
+  }
+
 }
 
 
